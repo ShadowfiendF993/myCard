@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Портфолио — Проекты</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main-header">
+        <nav class="navigation">
+            <button id="theme-toggle" class="theme-btn" title="Сменить тему">🌓</button>            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="about.html" class="nav-link">Обо мне</a></li>
+                <li><a href="skills.html" class="nav-link">Навыки</a></li>
+                <li><a href="portfolio.html" class="nav-link current">Портфолио</a></li>
+                <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Мои работы</h1>
+        </section>
+        <div class="portfolio-controls">
+            <input type="text" id="project-search" class="input-field" placeholder="Поиск по названию...">
+            <select id="tech-filter" class="input-field">
+                <option value="">Все технологии</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JS">JavaScript</option>
+            </select>
+        </div>
+        <div id="projects-container" class="projects-grid"></div>
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2026 Кирилл &nbsp;|&nbsp; Сделано с помощью &lt;html&gt; и &lt;CSS&gt;</p>
+    </footer>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

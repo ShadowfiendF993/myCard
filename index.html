@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main-header">
+        <nav class="navigation">
+            <button id="theme-toggle" class="theme-btn" title="Сменить тему">🌓</button>            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="about.html" class="nav-link">Обо мне</a></li>
+                <li><a href="skills.html" class="nav-link">Навыки</a></li>
+                <li><a href="portfolio.html" class="nav-link">Портфолио</a></li>
+                <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1 id="greeting-text">Добро пожаловать</h1>
+            <p class="lead-text">Рад видеть Вас на моем сайте! Сайт создан с целью рассказать о таком замечательном разработчике, как я.</p>
+        </section>
+        
+        <section class="navigation-cards">
+            <figure class="profile-figure">
+                <img src="img/me.jpg" alt="Моя фотография" class="profile-img">
+                <figcaption class="gradient-text">Будущий грузчик</figcaption>
+            </figure>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3><a href="about.html" class="card-link">Моя биография</a></h3>
+                    <ul class="who-list">
+                        <li>Учусь на специальности «Информационные системы и технологии»</li>
+                        <li>Cтараюсь познать веб-разработку с 11 класса</li>
+                        <li>Закончил обычную тюменскую школу, участвовал в обычных хакатонах и обычных олимпиадах.</li>
+                        <li>Люблю гамбургеры</li>
+                    </ul>     
+                </div>
+                <div class="info-card">
+                    <h3><a href="skills.html" class="card-link">Мои навыки</a></h3>
+                    <ol class="skill-list">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>C++</li>
+                        <li>framework Django</li>
+                        <li>Некоммуникабельный</li>
+                        <li>Не стрессоустойчивый</li>
+                        <li>Не готов выполнять нетривиальные задачи</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <a href="about.html" class="btn-action">Узнать больше обо мне</a>
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2026 Кирилл &nbsp;|&nbsp; Сделано с помощью &lt;html&gt; и &lt;CSS&gt;</p>
+    </footer>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

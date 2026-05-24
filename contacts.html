@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main-header">
+        <nav class="navigation">
+            <button id="theme-toggle" class="theme-btn" title="Сменить тему">🌓</button>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="about.html" class="nav-link">Обо мне</a></li>
+                <li><a href="skills.html" class="nav-link">Навыки</a></li>
+                <li><a href="portfolio.html" class="nav-link">Портфолио</a></li>
+                <li><a href="contacts.html" class="nav-link current">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="contact-info">
+            <div class="hero">
+                <h1>Связаться со мной</h1>
+            </div>
+            
+            <form id="feedback-form" novalidate>
+                <div class="form-group">
+                    <label for="user-fio">ФИО:</label>
+                    <input type="text" id="user-fio" name="fio" class="input-field" placeholder="Монгол Олег Монголович" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-phone">Телефон:</label>
+                    <input type="tel" id="user-phone" name="phone" class="input-field" placeholder="+8800553555" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-date">Желаемая дата связи:</label>
+                    <input type="date" id="contact-date" name="date" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label>Ваше фото:</label>
+                    <input type="file" id="user-photo" accept="image/*">
+                    <div id="photo-preview" class="preview-box"></div>
+                </div>
+                <button type="submit" class="btn-submit">Отправить сообщение</button>
+            </form>
+
+            <div id="fio-output" class="info-card hidden">
+                <h3>Данные из формы:</h3>
+                <p id="res-surname"></p>
+                <p id="res-name"></p>
+                <p id="res-patronymic"></p>
+                <hr>
+                <p id="res-phone"></p>
+                <p id="res-date"></p>
+            </div>
+        </section>
+
+        <div id="myModal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="modal-title">Инфо</h2>
+                <p id="modal-text"></p>
+            </div>
+        </div>
+
+        <section id="work-schedule" class="hero">
+            <h3>Режим работы</h3>
+            <table class="schedule-table">
+                <tr><td>Понедельник — Пятница</td><td>не работаю</td></tr>
+                <tr><td>Суббота — Воскресенье</td><td>Выходной</td></tr>
+             </table>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2026 Кирилл &nbsp;|&nbsp; Сделано с помощью &lt;html&gt; и &lt;CSS&gt;</p>
+    </footer>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

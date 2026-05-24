@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Навыки</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main-header">
+        <nav class="navigation">
+            <button id="theme-toggle" class="theme-btn" title="Сменить тему">🌓</button>           
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="about.html" class="nav-link">Обо мне</a></li>
+                <li><a href="skills.html" class="nav-link current">Навыки</a></li>
+                <li><a href="portfolio.html" class="nav-link">Портфолио</a></li>
+                <li><a href="contacts.html" class="nav-link">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Мой стек технологий</h1>
+        </section>
+        <table class="skills-table">
+            <thead>
+                <tr><th>Навык</th><th>Уровень</th><th>Опыт</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Верстка (HTML/CSS)</td><td>Начинающий 🚀</td><td>3 года</td></tr>
+                <tr><td>JavaScript</td><td>Начинающий⚡</td><td>1 год</td></tr>
+                <tr><td>Python</td><td>Начинающий 🛠️</td><td>4 года</td></tr>
+                <tr><td>C++</td><td>Начинающий 🎓</td><td>6 месяцев</td></tr>
+                <tr><td>Работа с Django</td><td>Начинающий 🏆</td><td>1 год</td></tr>
+            </tbody>
+        </table>
+        
+        <section class="hero">
+            <h2>Цели на ближайший год</h2>
+        </section>
+        <ol class="goals-list">
+            <li>Освоить React или Vue.js</li>
+            <li>Изучить основы Backend-разработки (Node.js)</li>
+            <li>Создать 5 крупных проектов для портфолио</li>
+        </ol>
+
+        <div id="calculator-section" class="tool-card calculator-card">
+            <h3>Калькулятор</h3>
+            <div class="calc-simple-row">
+                <input type="number" id="calc-n1" class="input-field" placeholder="Число 1">
+                <div id="calc-op-visual" class="op-badge">?</div>
+                <input type="number" id="calc-n2" class="input-field" placeholder="Число 2">
+            </div>
+            <div class="calc-grid-simple">
+                <button class="btn-op" data-op="+">+</button>
+                <button class="btn-op" data-op="-">-</button>
+                <button class="btn-op" data-op="*">×</button>
+                <button class="btn-op" data-op="÷">÷</button>
+            </div>
+            <div class="currency-status">
+                <div class="status-line"></div>
+                <div class="result-wrapper">
+                    <span class="label">Результат:</span>
+                    <div class="value-container">
+                        <span id="calc-result" class="value">0</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-text-only">Очистить всё</button>
+        </div>
+
+        <div id="currency-section" class="tool-card currency-card">
+            <h3>Конвертер валют</h3>
+            <div class="form-group">
+                <input type="number" id="rub-input" class="input-field full-width" placeholder="Введите сумму в рублях">
+            </div>
+            <div class="form-group">
+                <select id="currency-select" class="input-field full-width">
+                    <option value="USD">Доллар США (USD)</option>
+                    <option value="EUR">Евро (EUR)</option>
+                    <option value="ZWL">Зимбабвийский доллар (ZWL)</option>
+                </select>
+            </div>
+            <div class="currency-status">
+                <div class="status-line"></div>
+                <div class="result-wrapper">
+                    <span class="label">Вы получите:</span>
+                    <div class="value-container">
+                        <span id="currency-symbol" class="symbol">$</span>
+                        <span id="currency-result" class="value">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="hero">
+            <h2 id="nameGit">Проекты на GitHub</h2>
+            <div class="table-controls">
+                <input type="text" id="github-username" class="input-field" placeholder="Введите username GitHub">
+                <button id="github-search-btn" class="btn-submit">Найти репозитории</button>
+            </div>
+            <div id="github-repos-container" class="projects-grid"></div>
+        </section>
+    </main>
+
+    <footer id="main-footer">
+        <p>&copy; 2026 Кирилл &nbsp;|&nbsp; Сделано с помощью &lt;html&gt; и &lt;CSS&gt;</p>
+    </footer>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
