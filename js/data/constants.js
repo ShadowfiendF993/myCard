@@ -1,4 +1,3 @@
-// Константы для всего сайта
 export const THEME_KEY = 'theme';
 export const DARK_CLASS = 'dark-theme';
 

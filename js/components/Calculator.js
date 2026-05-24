@@ -15,7 +15,7 @@ export class Calculator {
         const buttons = this.container.querySelectorAll('.btn-op');
         buttons.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const op = e.target.textContent;
+                const op = btn.getAttribute('data-op') || btn.textContent;
                 this.calculate(op);
             });
         });
@@ -24,8 +24,8 @@ export class Calculator {
     }
 
     calculate(operator) {
-        const n1Val = parseFloat(this.n1.value);
-        const n2Val = parseFloat(this.n2.value);
+        let n1Val = parseFloat(this.n1.value);
+        let n2Val = parseFloat(this.n2.value);
         this.opVisual.textContent = operator;
 
         if (isNaN(n1Val) || isNaN(n2Val)) {
@@ -36,12 +36,28 @@ export class Calculator {
         let result;
         switch (operator) {
             case '+': result = n1Val + n2Val; break;
-            case '-': result = n1Val - n2Val; break;
+            case '-': result = n1Val - n2Val; break; 
             case '*': result = n1Val * n2Val; break;
-            case '÷': result = n2Val !== 0 ? (n1Val / n2Val).toFixed(2) : 'Ошибка'; break;
+            case '÷': result = n2Val !== 0 ? (n1Val / n2Val) : null; break;
             default: result = 0;
         }
-        this.resultSpan.textContent = result;
+
+        if (result === null || !isFinite(result)) {
+            this.resultSpan.textContent = 'Ошибка';
+            animateValue(this.resultSpan);
+            return;
+        }
+
+        let formattedResult;
+        if (Math.abs(result) > 1e12) {
+            formattedResult = result.toExponential(4);
+        } else if (Number.isInteger(result)) {
+            formattedResult = result.toString();
+        } else {
+            formattedResult = result.toFixed(2);
+        }
+
+        this.resultSpan.textContent = formattedResult;
         animateValue(this.resultSpan);
     }
 

@@ -10,8 +10,6 @@ export class Header {
     initBurgerMenu() {
         const menuToggle = document.getElementById('menu-toggle');
         const burgerIcon = document.querySelector('.burger-icon');
-        if (menuToggle && burgerIcon) {
-        }
     }
 
     highlightCurrentLink() {

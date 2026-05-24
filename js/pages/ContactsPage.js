@@ -6,23 +6,52 @@ export class ContactsPage extends BasePage {
         super();
         this.initForm();
         this.initPhotoPreview();
-        this.initDateRestriction();
     }
 
     initForm() {
         const form = document.getElementById('feedback-form');
         if (!form) return;
-        
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const fio = document.getElementById('user-fio').value.trim();
-            const phone = document.getElementById('user-phone').value.trim();
-            const date = document.getElementById('contact-date').value;
-            
-            if (!validateFIO(fio)) return this.showModal('Ошибка', 'В ФИО только буквы.');
-            if (!validatePhone(phone)) return this.showModal('Ошибка', 'Неверный телефон.');
-            if (!date) return this.showModal('Ошибка', 'Выберите дату.');
-            
+
+            const fioInput = document.getElementById('user-fio');
+            const fio = fioInput.value.trim();
+            if (!validateFIO(fio)) {
+                this.showModal('Ошибка', 'В ФИО только буквы.');
+                fioInput.value = '';
+                fioInput.focus();
+                return;
+            }
+
+            const phoneInput = document.getElementById('user-phone');
+            const phone = phoneInput.value.trim();
+            if (!validatePhone(phone)) {
+                this.showModal('Ошибка', 'Неверный телефон.');
+                phoneInput.value = '';
+                phoneInput.focus();
+                return;
+            }
+
+            const dateInput = document.getElementById('contact-date');
+            const dateValue = dateInput.value;
+            if (!dateValue) {
+                this.showModal('Ошибка', 'Выберите дату.');
+                dateInput.value = '';
+                dateInput.focus();
+                return;
+            }
+
+            const selectedDate = new Date(dateValue);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            if (selectedDate < today) {
+                this.showModal('Ошибка', 'Желаемая дата не может быть в прошлом!');
+                dateInput.value = '';
+                dateInput.focus();
+                return;
+            }
+
             const { surname, name, patronymic } = parseFIO(fio);
             const outputDiv = document.getElementById('fio-output');
             if (outputDiv) {
@@ -31,7 +60,9 @@ export class ContactsPage extends BasePage {
                 document.getElementById('res-name').innerText = `Имя: ${name}`;
                 document.getElementById('res-patronymic').innerText = `Отчество: ${patronymic}`;
                 document.getElementById('res-phone').innerText = `Телефон: ${phone}`;
-                document.getElementById('res-date').innerText = `Дата связи: ${date}`;
+                const [year, month, day] = dateValue.split('-');
+                const displayDate = `${day}.${month}.${year}`;
+                document.getElementById('res-date').innerText = `Дата связи: ${displayDate}`;
             }
             this.showModal('Успех', 'Данные формы приняты!');
         });
@@ -49,21 +80,6 @@ export class ContactsPage extends BasePage {
                         preview.innerHTML = `<img src="${e.target.result}" class="thumb-preview">`;
                     };
                     reader.readAsDataURL(file);
-                }
-            });
-        }
-    }
-
-    initDateRestriction() {
-        const dateInput = document.getElementById('contact-date');
-        if (dateInput) {
-            dateInput.addEventListener('input', () => {
-                const selected = new Date(dateInput.value);
-                const today = new Date();
-                today.setHours(0,0,0,0);
-                if (selected < today) {
-                    this.showModal('Ошибка', 'Желаемая дата не может быть в прошлом!');
-                    dateInput.value = '';
                 }
             });
         }

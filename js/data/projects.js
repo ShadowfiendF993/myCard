@@ -1,4 +1,3 @@
-// Данные проектов для портфолио
 export const projects = [
     {
         id: 1,
